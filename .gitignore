@@ -6,3 +6,5 @@ bin/
 **/.vs/
 obj/
 **/packages/
+*.exe
+*.zip
