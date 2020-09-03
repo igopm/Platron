@@ -13,5 +13,8 @@ namespace Platron.Pages
             this.driver = ServiceDriver.Driver;
             PageFactory.InitElements(driver, this);
         }
+
+        [FindsBy(How = How.LinkText, Using = "Войти")]
+        public IWebElement ButtonEnter { get; set; }
     }
 }
