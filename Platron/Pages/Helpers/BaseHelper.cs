@@ -30,30 +30,42 @@ namespace Platron.Pages
 
         protected void ActionFillField(IWebElement element, string value)
         {
-            WaitElementHelper(element).SendKeys(value);
+            WhenIsClickable(element).SendKeys(value);
         }
-
-        protected IWebElement WaitElementHelper(IWebElement element)
+        protected IWebElement WhenIsClickable(IWebElement element)
         {
             return wait.Until(ExpectedConditions.ElementToBeClickable(element));
         }
 
-        protected void ImplicitWaitElementHelper(int time = 3)
+        //protected IWebElement WhenIsClickable(IWebElement element, int delimeter = 30)
+        //{
+        //    try
+        //    {
+        //        var wait_ic = new WebDriverWait(driverHelper, TimeSpan.FromSeconds(10 / delimeter))
+        //        {
+        //            PollingInterval = TimeSpan.FromMilliseconds(500)
+        //        };
+        //        wait_ic.IgnoreExceptionTypes(typeof(NoSuchElementException));
+        //        wait_ic.IgnoreExceptionTypes(typeof(StaleElementReferenceException));
+        //        wait_ic.Until(e => ExpectedConditions.ElementToBeClickable(element));
+        //        return element;
+        //    }
+        //    catch (Exception e) when (e is NoSuchElementException || e is StaleElementReferenceException)
+        //    {
+        //        return null;
+        //    }
+        //}
+        protected void WaiteUntilPageLoad(int time = 10)
         {
-            driverHelper.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time);
+            //driverHelper.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(time);
+            var wait_pl = new WebDriverWait(driverHelper, TimeSpan.FromSeconds(time));
+            wait_pl.Until(driverHelper =>
+               (long)((IJavaScriptExecutor)driverHelper).ExecuteScript("return jQuery.active") == 0);
         }
 
         protected void WaitInvisibilityOfElementLocated(string xpath)
         {
             wait.Until(ExpectedConditions.InvisibilityOfElementLocated(By.XPath(xpath)));
-        }
-
-        protected void DrawHighlight(IWebElement element)
-        {
-            IJavaScriptExecutor jse = (IJavaScriptExecutor)driverHelper;
-            jse.ExecuteScript(
-@"arguments[0].style.border='3px solid red';
-setTimeout(() => arguments[0].style.border='0px solid red', 3000);", element);
         }
     }
 }

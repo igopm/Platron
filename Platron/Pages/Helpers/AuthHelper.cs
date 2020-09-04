@@ -27,7 +27,7 @@ namespace Platron.Pages.Helpers
         #region Checks
         public AuthHelper CheckAlertMessage(string expected)
         {
-            Assert.Equal(expected, WaitElementHelper(UIAuthPage.AlertMessage).Text.ToString());
+            Assert.Equal(expected, WhenIsClickable(UIAuthPage.AlertMessage).Text.ToString());
             return this;
         }
         #endregion

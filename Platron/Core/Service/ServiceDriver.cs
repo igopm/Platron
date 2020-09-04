@@ -28,7 +28,7 @@ namespace Platron.Core.Service
                         StartChrome();
                         break;
                     default:
-                        throw new Exception("initilize: " + bn + " not found");
+                        throw new Exception($"initilize: {bn} not found");
                 }
             }
             Driver.Navigate().GoToUrl(Config.UrlWebPlatron);
@@ -42,6 +42,7 @@ namespace Platron.Core.Service
         #region private section
         private static void StartChrome()
         {
+            //Config.UrlRemoveWebDriver
             Driver = new ChromeDriver(PathDriver(), Options());
             WebDriverWait Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
         }
@@ -66,7 +67,7 @@ namespace Platron.Core.Service
 
                 using (WebClient wc = new WebClient())
                 {
-                    File.WriteAllBytes(pathToZip, wc.DownloadData(new Uri(Config.urlDriverChrome)));
+                    File.WriteAllBytes(pathToZip, wc.DownloadData(new Uri(Config.UrlDriverChrome)));
                 }
 
                 ZipFile.ExtractToDirectory(pathToZip, Path.GetDirectoryName(pathToZip));

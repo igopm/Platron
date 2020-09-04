@@ -10,18 +10,18 @@ namespace Platron.Pages.Helpers
         #region Buttons
         public AuthHelper ClickButtonEnter()
         {
-            WaitElementHelper(UIDemoshopPage.ButtonEnter).Click();
+            WhenIsClickable(UIDemoshopPage.ButtonEnter).Click();
+            WaiteUntilPageLoad();
             driverHelper.SwitchTo().DefaultContent();
             driverHelper.SwitchTo().Frame(0);
+
             return AuthHelper;
         }
 
         public ShopCartHelper ClickInBinOnPage(int index = 1)
         {
             var elements = driverHelper.FindElements(By.XPath(UIDemoshopPage.ThingsOnMainPage));
-            IWebElement element = WaitElementHelper(elements[index]);
-            DrawHighlight(element);
-            var inBinElement = element.FindElement(By.XPath(UIDemoshopPage.InBinOnMainPage));
+            var inBinElement = WhenIsClickable(elements[index]).FindElement(By.XPath(UIDemoshopPage.InBinOnMainPage));
             inBinElement.Click();
             return ShopCartHelper;
         }

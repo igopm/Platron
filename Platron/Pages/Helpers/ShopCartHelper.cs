@@ -8,7 +8,7 @@ namespace Platron.Pages.Helpers
     {
         public ShopCartHelper CheckExistRowsInBin(int expectedElement = 0)
         {
-            ImplicitWaitElementHelper();
+            WaiteUntilPageLoad();
             var temp = driverHelper.FindElements(By.XPath(UIShopCartPage.RowsOnBinPage));
             Assert.Equal(expectedElement, temp.Count);
             return this;
