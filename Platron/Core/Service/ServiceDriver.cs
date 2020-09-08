@@ -1,9 +1,13 @@
-﻿using System;
+﻿//#define RWD
+#define IWD
+
+using System;
 using System.IO;
 using System.IO.Compression;
 using System.Net;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Remote;
 using OpenQA.Selenium.Support.UI;
 
 namespace Platron.Core.Service
@@ -16,7 +20,11 @@ namespace Platron.Core.Service
 
     public class ServiceDriver
     {
+#if (RWD)
+        public static RemoteWebDriver Driver = null;
+#elif (IWD)
         public static IWebDriver Driver = null;
+#endif
 
         public static void initilize(BrowserName bn = BrowserName.Chrome)
         {
@@ -42,8 +50,11 @@ namespace Platron.Core.Service
         #region private section
         private static void StartChrome()
         {
-            //Config.UrlRemoveWebDriver
-            Driver = new ChromeDriver(PathDriver(), Options());
+#if (RWD)
+            Driver = new RemoteWebDriver(new Uri(Config.UrlRemoveWebDriver), Options());
+#elif (IWD)
+            Driver = new ChromeDriver(PathDriver(), Options());   
+#endif
             WebDriverWait Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
         }
         private static ChromeOptions Options()
