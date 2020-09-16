@@ -1,14 +1,13 @@
 ﻿using System;
-using Xunit;
-using Xunit.Abstractions;
+using NUnit.Framework;
 using Platron.Pages.Helpers;
 
 namespace Platron.Tests
 {
+    [TestFixture]
     public class CliningBinTest : BaseTest
     {
-        public CliningBinTest(ITestOutputHelper output) : base(output) {}
-        [Fact]
+        [Test]
         public void CliningBin()
         {
             new DemoshopHelper()

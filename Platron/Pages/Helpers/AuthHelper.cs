@@ -1,5 +1,5 @@
 ﻿using System;
-using Xunit;
+using NUnit.Framework;
 
 namespace Platron.Pages.Helpers
 {
@@ -27,7 +27,7 @@ namespace Platron.Pages.Helpers
         #region Checks
         public AuthHelper CheckAlertMessage(string expected)
         {
-            Assert.Equal(expected, WhenIsClickable(UIAuthPage.AlertMessage).Text.ToString());
+            Assert.AreEqual(expected, WhenIsClickable(UIAuthPage.AlertMessage).Text.ToString());
             return this;
         }
         #endregion

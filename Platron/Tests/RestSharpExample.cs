@@ -1,17 +1,17 @@
 ﻿using System;
-using NUnit;
+using NUnit.Framework;
 using RestSharp;
 
 namespace RestSharpExample
 {
-    [TestClass]
+    [TestFixture]
     public class RestSharpExample
     {
         private object lt;
 
         public bool Is { get; private set; }
 
-        [TestMethod]
+        [Test]
         public void GetWeatherInfo()
         {
             const string url = "http://api.zippopotam.us/us/90210";

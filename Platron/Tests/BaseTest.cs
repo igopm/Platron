@@ -1,22 +1,18 @@
 ﻿using System;
-using Xunit.Abstractions;
 using Platron.Core.Service;
 
 namespace Platron.Tests
 {
     public class BaseTest : IDisposable
     {
-        private readonly ITestOutputHelper _output;
-
-        public BaseTest(ITestOutputHelper output)
+        public BaseTest()
         {
-            _output = output;
-            _output.WriteLine("Constructor");
+            Console.WriteLine("Constructor");
             ServiceDriver.initilize();
         }
         public void Dispose()
         {
-            _output.WriteLine("Dispose");
+            Console.WriteLine("Dispose");
             ServiceDriver.Quit();
         }
     }

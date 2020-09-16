@@ -1,5 +1,5 @@
 ﻿using System;
-using Xunit;
+using NUnit.Framework;
 using OpenQA.Selenium;
 
 namespace Platron.Pages.Helpers
@@ -10,7 +10,7 @@ namespace Platron.Pages.Helpers
         {
             WaiteUntilPageLoad();
             var temp = driverHelper.FindElements(By.XPath(UIShopCartPage.RowsOnBinPage));
-            Assert.Equal(expectedElement, temp.Count);
+            Assert.AreEqual(expectedElement, temp.Count);
             return this;
         }
 

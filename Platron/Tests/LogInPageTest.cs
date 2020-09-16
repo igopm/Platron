@@ -1,14 +1,13 @@
 ﻿using System;
-using Xunit;
+using NUnit.Framework;
 using Platron.Pages.Helpers;
-using Xunit.Abstractions;
 
 namespace Platron.Tests
 {
+    [TestFixture]
     public class LogInPageTest : BaseTest
     {
-        public LogInPageTest(ITestOutputHelper output) : base(output) { }
-        [Fact]
+        [Test]
         public void CheckWorningMessageInLogInPage()
         {
             new DemoshopHelper()

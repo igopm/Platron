@@ -1,15 +1,13 @@
 ﻿using System;
-using Xunit;
-using Xunit.Abstractions;
+using NUnit.Framework;
 using Platron.Pages.Helpers;
 
 namespace Platron.Tests
 {
+    [TestFixture]
     public class AddingAnItemToTheBinTest : BaseTest
     {
-        public AddingAnItemToTheBinTest(ITestOutputHelper output) : base(output) { }
-
-        [Fact]
+        [Test]
         public void AddingAnItemToTheBin()
         {
             new DemoshopHelper()

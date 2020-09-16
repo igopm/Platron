@@ -1,7 +1,6 @@
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
-using Xunit;
 
 [assembly: AssemblyTitle("Platron")]
 [assembly: AssemblyDescription("")]
@@ -11,7 +10,7 @@ using Xunit;
 [assembly: AssemblyCopyright("Copyright © Microsoft 2020")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
-[assembly: CollectionBehavior(DisableTestParallelization = true)]
+// [assembly: CollectionBehavior(DisableTestParallelization = true)]
 
 [assembly: ComVisible(false)]
 
