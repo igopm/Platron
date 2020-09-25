@@ -15,16 +15,16 @@ namespace Platron.Tests
         [Test]
         public void CheckWorningMessageInLogInPage()
         {
-            RunSettings.TETST();
+            //RunSettings.TETST();
 
-           // Print("CheckWorningMessageInLogInPage");
+            // Print("CheckWorningMessageInLogInPage");
             //throw new Exception("CheckWorningMessageInLogInPage");
-            //new DemoshopHelper()
-            //    .ClickButtonEnter()
-            //    .ActionSetLogIn("notCorrect")
-            //    .ActionSetPassword("password")
-            //    .ActionClickButtonSubmit()
-            //    .CheckAlertMessage("Введенная комбинация логин/пароль неверна");
+            new DemoshopHelper()
+                .ClickButtonEnter()
+                .ActionSetLogIn("notCorrect")
+                .ActionSetPassword("password")
+                .ActionClickButtonSubmit()
+                .CheckAlertMessage("Введенная комбинация логин/пароль неверна");
         }
     }
 }

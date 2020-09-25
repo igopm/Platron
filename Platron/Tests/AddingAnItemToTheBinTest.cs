@@ -15,9 +15,9 @@ namespace Platron.Tests
         public void AddingAnItemToTheBin()
         {
             Print("AddingAnItemToTheBin");
-            //new DemoshopHelper()
-            //    .ClickInBinOnPage()
-            //    .CheckExistRowsInBin(1);
+            new DemoshopHelper()
+                .ClickInBinOnPage()
+                .CheckExistRowsInBin(1);
         }
     }
 }

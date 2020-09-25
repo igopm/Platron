@@ -9,9 +9,9 @@ namespace Platron.Tests
     {
         public BaseTest()
         {
-            RunSettings.ConfigurationFiles();
+            //RunSettings.ConfigurationFiles();
             Print("Constructor");
-            //ServiceDriver.initilize();
+            ServiceDriver.initilize();
         }
 
         public void Print(string m)
@@ -27,7 +27,7 @@ namespace Platron.Tests
         public void Dispose()
         {
             Print("Dispose");
-            //ServiceDriver.Quit();
+            ServiceDriver.Quit();
         }
     }
 }

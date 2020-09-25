@@ -15,11 +15,11 @@ namespace Platron.Tests
         public void CliningBin()
         {
             Print("CliningBin");
-            //new DemoshopHelper()
-            //    .ClickInBinOnPage()
-            //    .CheckExistRowsInBin(1)
-            //    .ActionRemoveElementFromBin()
-            //    .CheckExistRowsInBin();
+            new DemoshopHelper()
+                .ClickInBinOnPage()
+                .CheckExistRowsInBin(1)
+                .ActionRemoveElementFromBin()
+                .CheckExistRowsInBin();
         }
     }
 }

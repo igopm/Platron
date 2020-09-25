@@ -10,5 +10,7 @@ namespace Platron.Core
         public static string UrlDriverChrome { get { return ConfigurationManager.AppSettings["urlChromeDriver"]; } }
 
         public static string UrlWebPlatron { get { return ConfigurationManager.AppSettings["urlWebPlatron"]; } }
+
+        public static string ModeForChrome { get { return ConfigurationManager.AppSettings["modeForChrome"]; } }
     }
 }

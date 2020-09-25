@@ -53,13 +53,17 @@ namespace Platron.Core.Service
 #if (RWD)
             Driver = new RemoteWebDriver(new Uri(Config.UrlRemoveWebDriver), Options());
 #elif (IWD)
-            Driver = new ChromeDriver(PathDriver(), Options());   
+            Driver = new ChromeDriver(PathDriver(), Options());
 #endif
             WebDriverWait Wait = new WebDriverWait(Driver, TimeSpan.FromSeconds(10));
         }
         private static ChromeOptions Options()
         {
             var chromeOptions = new ChromeOptions();
+
+            // headless mode
+            if (Config.ModeForChrome != "")
+                chromeOptions.AddArgument(Config.ModeForChrome);
             chromeOptions.AddArgument("--start-maximized");
             chromeOptions.PageLoadStrategy = PageLoadStrategy.Normal;
             return chromeOptions;
