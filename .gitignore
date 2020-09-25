@@ -1,0 +1,10 @@
+# User-specific files
+*.suo
+*.user
+*.sln.docstates
+bin/
+**/.vs/
+obj/
+**/packages/
+*.exe
+*.zip
