@@ -3,8 +3,11 @@
 *.user
 *.sln.docstates
 bin/
+allure-results/
 **/.vs/
 obj/
 **/packages/
 *.exe
 *.zip
+*.idea
+*target/
